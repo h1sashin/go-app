@@ -1,0 +1,12 @@
+common:
+  not_found: "Entity not found"
+  internal_error: "Internal error"
+  bad_request: "Bad request"
+  unauthorized: "Unauthorized"
+  forbidden: "Forbidden"
+  conflict: "Conflict"
+
+auth:
+  invalid_credentials: "Invalid credentials"
+  already_exists: "User already exists"
+  invalid_token: "Invalid token"

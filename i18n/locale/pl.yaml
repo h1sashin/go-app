@@ -1,0 +1,12 @@
+common:
+  not_found: "Nie znaleziono jednostki"
+  internal_error: "Błąd wewnętrzny"
+  bad_request: "Złe żądanie"
+  unauthorized: "Nieautoryzowany"
+  forbidden: "Zabroniony"
+  conflict: "Konflikt"
+
+auth:
+  invalid_credentials: "Nieprawidłowe dane uwierzytelniające"
+  already_exists: "Użytkownik już istnieje"
+  invalid_token: "Nieprawidłowy token"

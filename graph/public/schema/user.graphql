@@ -1,0 +1,15 @@
+extend type Query {
+  me: User!
+  user(id: ID!): User
+}
+
+enum Role {
+  ADMIN
+  USER
+}
+
+type User {
+  id: ID!
+  email: String!
+  role: Role!
+}

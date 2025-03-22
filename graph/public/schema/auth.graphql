@@ -1,0 +1,45 @@
+extend type Mutation {
+  refreshTokens(refreshToken: String!): Tokens!
+  signIn(email: String!, password: String!): SignInResult!
+  signUp(email: String!, password: String!): SignUpResult!
+}
+
+type SignInError {
+  code: SignInErrorCode!
+  message: String!
+}
+
+enum SignInErrorCode {
+  ACCOUNT_BANNED
+  INVALID_CREDENTIALS
+  TOO_MANY_ATTEMPTS
+}
+
+union SignInResult = SignInError | SignInSuccess
+
+type SignInSuccess {
+  tokens: Tokens!
+  user: User!
+}
+
+type SignUpError {
+  code: SignUpErrorCode!
+  message: String!
+}
+
+enum SignUpErrorCode {
+  EMAIL_ALREADY_REGISTERED
+  TOO_MANY_ATTEMPTS
+}
+
+union SignUpResult = SignUpError | SignUpSuccess
+
+type SignUpSuccess {
+  tokens: Tokens!
+  user: User!
+}
+
+type Tokens {
+  accessToken: String!
+  refreshToken: String!
+}
