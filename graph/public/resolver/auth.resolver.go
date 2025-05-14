@@ -26,6 +26,7 @@ func (r *mutationResolver) RefreshTokens(ctx context.Context, refreshToken strin
 		if err == service.ErrUnauthorized {
 			return nil, &gqlerror.Error{Message: loc.MustLocalize(&i18n.LocalizeConfig{MessageID: "common.unauthorized"}), Extensions: map[string]interface{}{"code": "UNAUTHORIZED"}}
 		}
+		return nil, &gqlerror.Error{Message: loc.MustLocalize(&i18n.LocalizeConfig{MessageID: "common.internal_error"}), Extensions: map[string]interface{}{"code": "INTERNAL_SERVER_ERROR"}}
 	}
 
 	return mapper.MapTokens(tokens), nil

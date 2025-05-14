@@ -1,11 +1,28 @@
 -- name: GetUserByID :one
-SELECT * FROM users WHERE id = $1;
+SELECT id,
+  created_at,
+  updated_at,
+  email,
+  password,
+  role
+FROM users
+WHERE id = $1;
 
 -- name: GetUserByEmail :one
-SELECT * FROM users WHERE email = $1;
+SELECT *
+FROM users
+WHERE email = $1;
 
 -- name: GetUsers :many
-SELECT * FROM users;
+SELECT id,
+  created_at,
+  updated_at,
+  email,
+  password,
+  role
+FROM users;
 
 -- name: CreateUser :one
-INSERT INTO users (email, password, role) VALUES ($1, $2, $3) RETURNING *;
+INSERT INTO users (email, password, role)
+VALUES ($1, $2, $3)
+RETURNING *

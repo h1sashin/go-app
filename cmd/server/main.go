@@ -26,13 +26,13 @@ import (
 )
 
 func main() {
-	logging.SetupLogger(config.LogLevel(config.Info))
-
 	cfg, err := config.Load()
 
 	if err != nil {
 		log.Fatal().Err(err)
 	}
+
+	logging.SetupLogger(cfg)
 
 	conn, err := db.NewDB(cfg)
 

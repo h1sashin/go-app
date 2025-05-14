@@ -28,6 +28,7 @@ type Config struct {
 	AppEnv           Environment
 	AppPort          int
 	DatabaseUrl      string
+	SentryDsn        string
 	LogLevel         LogLevel
 	AccessSecretKey  string
 	AccessDuration   time.Duration
@@ -52,6 +53,7 @@ func Load() (*Config, error) {
 		AppEnv:           Environment(getEnv("APP_ENV", "development")),
 		AppPort:          appPort,
 		DatabaseUrl:      getEnv("DATABASE_URL", "postgres://postgres:password@localhost:5432/postgres?sslmode=disable"),
+		SentryDsn:        getEnv("SENTRY_DSN", ""),
 		LogLevel:         LogLevel(getEnv("LOG_LEVEL", "info")),
 		AccessSecretKey:  getEnv("JWT_ACCESS_SECRET", "access_secret"),
 		AccessDuration:   accessDuration,

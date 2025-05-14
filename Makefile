@@ -21,7 +21,7 @@ help:
 
 # Run development server
 run:
-	air
+	air -c .air.toml
 
 # Build the application
 build:
